@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUOTES</title>
+</head>
+<body>
+    
+    <div class="appbar">
+        <h1 class="head" style=" color: royalblue; font-size: 40px; position: absolute;">QUOTES<h1></div>
+    <div class="container">
+        <div class="card">
+        <h2 style="color: brown; font-weight: bold;font-size: 25px;">Rich Dad and Poor Dad</h2>
+        <h3>Robert</h3>
+        <hr width="98%">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil iure assumenda soluta pariatur beatae laboriosam voluptas facilis ullam explicabo, quos minima magni modirepellat, iste incidunt dignissimos temporibus,ratione quas.</p>  
+        <button id="clo" onclick="cl(event)">Delete</button>
+    </div></div>
+    <p><button id="add">+</button></p>
+ <div id="pop-up"></div>
+    <div id="pop-upbox"> 
+    <h2>Add Book</h2>
+    <form>
+    <input  type="text"placeholder="TITLE" id="input" ><br><br>
+    <input type="text" placeholder="AUTHOR" id="put"><br><br>
+    <textarea placeholder="DESCRIPTION" id="description" maxlength="250"></textarea><br><br>
+   <button id="additem"style="width:80px;height: 30px;">ADD</button>
+    </span><button id="cancel" style="width:80px; height: 30px;">CANCEL</button>
+</form></div>
+    <script>
+   
+        var but = document.getElementById("add")
+        var popup=document.getElementById("pop-up")
+        var popbox=document.getElementById("pop-upbox")
+        but.addEventListener("click",function(){
+             popup.style.display="block"
+             popbox.style.display="block"
+        })
+        var container=document.querySelector(".container")
+        var inneradd = document.getElementById("additem")
+        var title=document.getElementById("input")
+        var author=document.getElementById("put")
+        var area=document.getElementById("description")
+        inneradd.addEventListener("click",function(){
+            event.preventDefault()
+            var div=document.createElement("div")
+            div.setAttribute("class","card")
+            div.innerHTML=`<h2 style="color: brown; font-weight: bold;font-size: 25px;">${title.value}</h2>
+            <h3>${author.value}</h3>
+        <hr width="95%">
+        <p>${area.value}</p>
+        <button id="clo" onclick="cl(event)">Delete</button>`
+        container.append(div)
+        popup.style.display="none"
+        popbox.style.display="none"
+        })
+
+        var cancel=document.getElementById("cancel")        //cancel button implementation
+        cancel.addEventListener("click",function(){
+            event.preventDefault()
+            popup.style.display="none"
+            popbox.style.display="none"
+        })
+
+        function cl(event){
+            event.target.parentElement.remove()
+        }
+</script>
+
+<style>
+        #clo{
+            background-color: #FD6569; 
+            border: none; 
+            padding: 8px; 
+            font-size: 15px;
+            border-radius: 10px;
+        }
+         #add{
+
+            position: absolute;
+            top: 80%;
+            left: 91%;
+            background-color:#FD6569;
+            border-radius: 100px;
+            padding-top: 20px;
+            padding-left: 30px;
+            padding-bottom: 20px;
+            padding-right: 30px;
+            font-size: 40px;
+            border: none;
+            position: fixed;
+         }
+        .appbar{
+            position: absolute;
+            left: 2%;
+            background-color:lightpink;
+            width: 100%;
+            height:10%;
+            top: 0px;left: 0px;
+           }
+           
+           
+        .container{
+            position: absolute;
+            top: 10%;
+            left:2%;
+            }
+        .card{
+            background-color:bisque;
+            top: 100px;
+            text-align: left;
+            word-wrap: break-word;
+            padding-left: 20px;
+            padding-right: 1opx;
+            padding-bottom: 10px;
+            width: 25%;
+            height: 280px;
+            vertical-align: top;
+            border-radius: 20px;
+            margin: 35px;
+            display: inline-block;
+        }
+        #pop-up{
+            background-color: black;
+            position: absolute;
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+            opacity: 0.8;
+            z-index: 1;
+            display: none;
+        }
+        #pop-upbox{
+            position: absolute;
+            position: fixed;
+            top:20% ;
+            background-color: #FD6569;
+            border-radius: 10px;border: none;
+            left: 35%;
+            width: 35%;
+            height: 40%;
+            padding-left: 40px;
+            z-index: 2;
+            display: none;
+        }
+        #input,#put{
+            outline: none;
+           height:  30px;
+           width: 500px;
+           color: black;
+           font-size: 15px;
+           border: none;
+           background:transparent;
+           border-bottom: solid black 2px;
+        }
+        #description{
+           outline: none;
+           font-size: 15px;
+           border: none;
+           width: 500px;
+           background:transparent;
+           border-bottom: solid black 2px;
+        }
+            
+
+</style>
+   
+
+</body>
+</html>
